@@ -11,9 +11,9 @@ class Iuran extends Model {
 
     protected $table = 'iurans';
 
-    protected $fillable = ['id_warga, bulan', 'jumlah_iuran', 'status'];
-
-    protected $dates = ['bulan'];
+    protected $fillable = [
+        'id_warga', 'bulan', 'jumlah_iuran', 'status'
+    ];
 
     public function warga()
     {

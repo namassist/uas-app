@@ -17,4 +17,15 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/api/iuran/tunggakan/{tahun}', 'IuranController@getTunggakan');
+$router->group(['prefix' => '/api/iuran'], function () use ($router) {
+    $router->get('/', 'IuranController@index');
+    $router->get('/{id:[\d]+}', [
+        'as' => 'iurans.show',
+        'uses' => 'IuranController@show'
+    ]);
+    $router->post('/', 'IuranController@store');
+    $router->put('/{id:[\d]+}', 'IuranController@update');
+    $router->delete('/{id:[\d]+}', 'IuranController@destroy');
+    $router->get('/tunggakan/{tahun}', 'IuranController@getTunggakan');
+});
+
