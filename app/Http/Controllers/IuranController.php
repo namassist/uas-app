@@ -5,6 +5,7 @@ use App\Models\Warga;
 use App\Models\Iuran;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class IuranController extends Controller
 {
@@ -75,10 +76,12 @@ class IuranController extends Controller
     {
         try{
             $this->validate($request, [
-                'status' => 'required|string|in:pending,selesai',
+                'status' => [
+                    'required',
+                    'regex:/^(pending|selesai)$/i',
+                ],
             ],[
-                'status.required' => 'status is required',
-                'status.in' => 'Bad Request. Allowed values: pending, selesai.',
+                'status.regex' => "Status format is invalid: must equal 'pending' or 'selesai'",
             ]);
 
             $iuran = Iuran::findOrFail($id);
@@ -130,7 +133,7 @@ class IuranController extends Controller
 
             $detail_tunggakan = $warga->iurans->map(function ($iuran) {
                 return [
-                    'bulan' => $iuran->bulan,
+                    'bulan' => Carbon::parse($iuran->bulan)->format('Y-m'),
                     'jumlah_iuran' => $iuran->jumlah_iuran,
                 ];
             });
@@ -155,7 +158,7 @@ class IuranController extends Controller
     private function validateIuran(Request $request)
     {
         $this->validate($request, [
-            'id_warga' => 'required',
+            'id_warga' => 'required|exists:wargas,id',
             'bulan' => [
                 'required',
                 'date_format:Y-m-d',

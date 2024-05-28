@@ -13,6 +13,8 @@ class Warga extends Model {
 
     protected $fillable = ['nama', 'alamat'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     public function iurans()
     {
         return $this->hasMany(Iuran::class, 'id_warga');
