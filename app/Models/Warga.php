@@ -15,6 +15,7 @@ class Warga extends Model {
 
     protected $hidden = ['created_at', 'updated_at'];
 
+
     public function iurans()
     {
         return $this->hasMany(Iuran::class, 'id_warga');
