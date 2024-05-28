@@ -1,0 +1,56 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "nama": "John Doe",
+            "alamat": "Jl. Mawar No. 10",
+            "total_tunggakan": 300000,
+            "detail_tunggakan": [
+                {
+                    "bulan": "2024-01",
+                    "jumlah_iuran": 50000
+                },
+                {
+                    "bulan": "2024-02",
+                    "jumlah_iuran": 50000
+                },
+                {
+                    "bulan": "2024-03",
+                    "jumlah_iuran": 50000
+                },
+                {
+                    "bulan": "2024-04",
+                    "jumlah_iuran": 50000
+                },
+                {
+                    "bulan": "2024-05",
+                    "jumlah_iuran": 50000
+                },
+                {
+                    "bulan": "2024-06",
+                    "jumlah_iuran": 50000
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "nama": "Jane Smith",
+            "alamat": "Jl. Melati No. 5",
+            "total_tunggakan": 150000,
+            "detail_tunggakan": [
+                {
+                    "bulan": "2024-03",
+                    "jumlah_iuran": 50000
+                },
+                {
+                    "bulan": "2024-04",
+                    "jumlah_iuran": 50000
+                },
+                {
+                    "bulan": "2024-05",
+                    "jumlah_iuran": 50000
+                }
+            ]
+        }
+    ]
+}
